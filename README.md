@@ -1,0 +1,1 @@
+[![Stories in Ready](https://badge.waffle.io/mpxcode/map-viewer.png?label=ready&title=Ready)](http://waffle.io/mpxcode/map-viewer)
