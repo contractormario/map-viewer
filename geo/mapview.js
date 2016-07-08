@@ -6,7 +6,7 @@ const MAX_LAT = function() {
         return (Math.exp(x) - Math.exp(-x)) / 2;
     }
     return Math.atan(sinh(Math.PI)) * DEG;
-};
+}();
 
 class MapView {
     constructor(zoom, cll, w, h) {
@@ -119,4 +119,4 @@ class MapView {
     }
 }
 
-export default MapView;
+export { RAD, DEG, TILE_SIZE, MAX_LAT, MapView };

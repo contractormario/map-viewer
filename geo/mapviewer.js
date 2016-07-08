@@ -1,4 +1,4 @@
-import MapView from './mapview';
+import { MapView } from './mapview';
 
 const MOUSE_WHEEL_DELTA_MODE = {
     DOM_DELTA_PIXEL: 0,
