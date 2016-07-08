@@ -375,12 +375,11 @@ class MapViewer {
         canvas.id = "canvas";
         canvas.width = w;
         canvas.height = h;
-        canvas.style.backgroundColor = 'blue';
+        canvas.style.backgroundColor = 'white';
         canvas.style.zIndex = 8;
         canvas.style.position = "absolute";
         canvas.style.left = x + 'px';
         canvas.style.top = y + 'px';
-        canvas.style.border = "1px solid red";
 
         canvas.draggable = 'true';
 
@@ -439,7 +438,7 @@ class MapViewer {
     }
 
     drawBackground() {
-        this.c.fillStyle = "rgb(0,0,255)";
+        this.c.fillStyle = "rgb(255,255,255)";
         this.c.fillRect(this.x, this.y, this.w, this.h);
     }
 
