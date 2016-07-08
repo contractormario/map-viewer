@@ -105,7 +105,6 @@ class MapViewer {
         this.mouseX = 0;
         this.mouseY = 0;
         this.dragging = false;
-        this.onResizeCb = null;
         this.tileSource = 2; // OSM
         this.spriteCache = {};
         // this.center = center;
@@ -348,15 +347,24 @@ class MapViewer {
         return tiles;
     }
 
-    /* Sets the new resize event handler */
-    onResize(cb) {
-        /* Remove existing handler */
-        window.removeEventListener('resize', this.onResizeCb, true);
+    /*
+    * w - window width
+    * h - window height
+    * */
+    onResize(w, h) {
+        var canvas = document.getElementById('canvas');
+        canvas.width = w;
+        canvas.height = h;
 
-        /* Register new handler */
-        window.addEventListener('resize', (event) => {
-            cb.call(this, window.innerWidth, window.innerHeight);
-        }, true);
+        this.w = w;
+        this.h = h;
+
+        this.view = new MapView(this.zoom, this.cll, this.w, this.h);
+
+        this.tiles = {};
+        this.tiles = this.getTileArray();
+
+        this.render();
     }
 
     initCanvas(x, y, w, h) {
@@ -364,7 +372,7 @@ class MapViewer {
         this.canvas = canvas;
         this.c = canvas.getContext('2d');
 
-        canvas.id = "CursorLayer";
+        canvas.id = "canvas";
         canvas.width = w;
         canvas.height = h;
         canvas.style.backgroundColor = 'blue';
