@@ -9,3 +9,6 @@ dist: trusty
 language: node_js
 node_js:
   - node # means use latest stable node version
+
+notifications:
+  slack: mpxcode:H8b77d0Vyoq3MGj5XMVQlBZQ
